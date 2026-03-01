@@ -49,11 +49,11 @@ The goal is to create an open foundation where creators can build their own solu
 
 | Module | Description |STL package| Presets |
 |--     |:----:|:------------:|:-----:|
-|[![check](https://img.shields.io/badge/Block-1?style=for-the-badge&color=darkcyan)](https://www.openscad.org)|Block for organizing milling cutters and rotary tools of various sizes|✖|✖|
-|[![check](https://img.shields.io/badge/Block_Tray-1?style=for-the-badge&color=lightcoral)](https://www.openscad.org)|Block for tool organization with a storage tray |✖|✖|
-|[![check](https://img.shields.io/badge/Tray-1?style=for-the-badge&color=slateblue)](https://www.openscad.org)|Trays for various parts with the option to divide into custom compartments |✖|✖|
-|[![check](https://img.shields.io/badge/Tray_Diamonds-1?style=for-the-badge&color=darkseagreen)](https://www.openscad.org)|Trays for sorting diamonds or other gemstones. |✖|✖|
-|[![check](https://img.shields.io/badge/Burs_Boxes-1?style=for-the-badge&color=crimson)](https://www.openscad.org)|Organizer for boxes with milling burs. |✖|✖|
+|[![check](https://img.shields.io/badge/Block-1?style=for-the-badge&color=darkcyan)](/docs/documentation.md#2-block)|Block for organizing milling cutters and rotary tools of various sizes|✖|✖|
+|[![check](https://img.shields.io/badge/Block_Tray-1?style=for-the-badge&color=lightcoral)](/docs/documentation.md#1-block-tray)|Block for tool organization with a storage tray |✖|✖|
+|[![check](https://img.shields.io/badge/Tray-1?style=for-the-badge&color=slateblue)](/docs/documentation.md#5-tray)|Trays for various parts with the option to divide into custom compartments |✖|✖|
+|[![check](https://img.shields.io/badge/Tray_Diamonds-1?style=for-the-badge&color=darkseagreen)](/docs/documentation.md#4-tray-diamonds)|Trays for sorting diamonds or other gemstones. |✖|✖|
+|[![check](https://img.shields.io/badge/Burs_Box-1?style=for-the-badge&color=crimson)](/docs/documentation.md#3-burs-box)|Organizer for boxes with milling burs. |✖|✖|
 
 #### Features
 

@@ -1,6 +1,6 @@
 ![logo](/imgs/main3.png)
 
-[![kesl-badge](https://img.shields.io/badge/www.KESLDESIGN.cz-8A2BE2?style=for-the-badge&color=blue)](https://www.kesldesign.cz)
+[![kesl-badge](https://img.shields.io/badge/www.KESLDESIGN.cz-8A2BE2?style=for-the-badge&color=blue)](https://kesldesign.cz/tools/)
 [![Static Badge](https://img.shields.io/badge/OpenSCAD-1?style=for-the-badge&color=%23F9D72C)](https://www.openscad.org)
 [![Static Badge](https://img.shields.io/badge/documentation-6?style=for-the-badge&color=purple)](/docs/documentation.md)
 [![Static Badge](https://img.shields.io/badge/EN-3?style=for-the-badge&color=gray)](README.md)

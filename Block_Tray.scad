@@ -1,8 +1,5 @@
-// Base Tool
-// Version - 0.1.6
+// Block Tray Tool
 // kesldesign.cz/tools
-
-
 
 //LIBS
 include <BOSL2/std.scad>
@@ -65,7 +62,6 @@ selectedPrinter = "Original Prusa MK4S";  // [Original Prusa MK4S, Original Prus
 // Buildplate rotation
 buildPlateRotation = 0; // [0:45:180]
 
-
 //Space calculation
 space = toolSize + toolSpacing;
 
@@ -115,7 +111,6 @@ fits = (boundX <= bedX) && (boundY <= bedY);
 //FILENAME
 echo(str("FILENAME: block_tray_", gridCountX, "x", gridCountY, "_S", toolSize, "_H", bodyHeight, "_C", holeClearance*100, "_T", toolTiltAngle, "_TR", trayDepth, "_TC", trayCount, ".stl"));
 
-
 //MAIN
 recolor(mainCol)
 difference()
@@ -132,11 +127,8 @@ difference()
                     {
                         difference() 
                         {  
-    //Vycentrování a posonutí o sílu dna pod 0,0,0
                             translate([0,trayDepth/-2,((bodyHeight+rimThickness)/2)-3])
-    //Základní stavební tvar
                             cuboid([boundX,boundY+trayDepth,bodyHeight+rimThickness], rounding=toolSize/2, edges = "Z");
-    //Válce na vyřezání děr
                             translate([centerX,centerY,bodyHeight-15])
                                 for (i = [0 : gridCountX-1]) {
                                     for (j = [0 : gridCountY-1]) {
@@ -146,11 +138,9 @@ difference()
                                     }
                                 }
                         }
-    //Rim výřez
                     translate([0,0,(bodyHeight*1.5)-3+rimThickness])    
                     cuboid([boundX-(rimThickness*2),boundY-(rimThickness*2),bodyHeight+rimThickness], rounding=(toolSize-rimThickness)/2, edges = "Z");
                     }
-    //Logo
                         translate([0,trayDepth/-2,-3.2]) 
                         difference() 
                         {
@@ -164,16 +154,10 @@ difference()
                             cuboid([2.25*2,2.25,2.25], rounding = 2.25/2, edges = "Z");
                         }
                 }
-
-
             translate([0,(boundY+trayDepth)/-2,bodyHeight/2+3]) 
             cuboid([boundX-rimThickness*2,trayDepth-rimThickness*2,bodyHeight], rounding=(toolSize-rimThickness)/2, edges="Z");
-
-
-
             }
         }
-    // Separators    
         difference() 
         {   
         translate([(boundX/-2)+traySize,boundY/-2+trayDepth/-2,bodyHeight/2-3/2]) 
@@ -182,14 +166,10 @@ difference()
                 translate([i * traySize, 0, 0]) 
                 cuboid([rimThickness,trayDepth,bodyHeight-3/2-rimThickness]);
             }
-        // Extra features for separators
             translate([0,boundY/-2+trayDepth/-2,bodyHeight])
-            // 
             scale([1,1,trayPerc]) xcyl(boundX, trayDepth/2);
         }
     }
-// protislkuzy
-
     if (boundX>=40 && boundY>=40 && enableAntislip==true)
     {
     antislip_size = 10.5;
@@ -201,12 +181,8 @@ difference()
     }
 }
 
-
-// ######################################################## //
-
 if (previewTools==true)
 {
-//Burrs and Discs
 translate([centerX, centerY,bodyHeight-15])
     for (i = [0 : gridCountX-1])
     {
@@ -216,17 +192,13 @@ translate([centerX, centerY,bodyHeight-15])
             {
                 idx = i*gridCountY + j;
                 rnd = rands(0, 1, 1, randomSeed + idx)[0];
-                if (rnd < previewVisibility/100) {
-                    // Generate random sphere radius between 1 and 5
-                    sphere_r = rands(1.0, 2.2, 1, randomSeed + idx + 1000)[0]; // +1000 to avoid randomSeed collision
+                if (rnd < previewVisibility/100)
+                {
+                    sphere_r = rands(1.0, 2.2, 1, randomSeed + idx + 1000)[0];
                         translate([i * space, j * space, 0])   
                         xrot(toolTiltAngle)  
                         recolor("ivory") 
-                        // Typ frezky:
-
-                        //Conus
                         cyl(h=toolLength, r=(2.35/2), center=false)  translate([0, 0, toolLength/2+2]) cyl(h=4, r1=2.35/2, r2=0.3)
-                        //Endpoint
                         translate([0, 0, 2]) recolor(toolAccentCol) sphere(r=sphere_r/2);
                 }
             }
@@ -238,8 +210,6 @@ translate([centerX, centerY,bodyHeight-15])
                 {
                     translate([i * space, j * space, 0])   
                     xrot(toolTiltAngle)  
-
-                    // Typ frezky:
                     recolor("ivory") 
                     cyl(h=toolLength, r=(2.35/2), center=false) translate([0, 0, toolLength/2+2]) recolor(toolAccentCol) cyl(h=12, d1=toolSize, d2=1);  
                 }
@@ -252,8 +222,6 @@ translate([centerX, centerY,bodyHeight-15])
                 {
                     translate([i * space, j * space, 0])   
                     xrot(toolTiltAngle)  
-
-                    // Typ frezky:
                     recolor("ivory") 
                     cyl(h=toolLength, r=(2.35/2), center=false) translate([0, 0, toolLength/2-2]) recolor(toolAccentCol) cyl(h=3, d=toolSize, center=true, chamfer1 = 1.5, chamfer2 = 1.5);  
                 }   
@@ -262,12 +230,9 @@ translate([centerX, centerY,bodyHeight-15])
     }
 }
 
-
 recolor("antiquewhite")
-
 if (previewBuildPlate == true)
 {
-//buildplate
     zrot(buildPlateRotation)
     translate([0,0,-3.1]) 
     cuboid([bedX,bedY,0.2]);

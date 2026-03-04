@@ -1,8 +1,6 @@
-// BurrBox Tool 
-// Version - 0.0.6
+// Burs Box Tool 
 // Jan Kesl
 // kesldesign.cz/tools
-
 
 //LIBS
 include <BOSL2/std.scad>
@@ -12,7 +10,6 @@ include <BOSL2/std.scad>
 $fn = 40; // [20:200]
 // Main color
 mainCol  = "darkcyan";        // ["darkcyan", "darkorchid", "darkslateblue", "darkseagreen", "lightcoral", "lightskyblue"]
-
 
 /* [Grid configuration] */
 // Number of rows
@@ -53,7 +50,6 @@ selectedPrinter = "Original Prusa MK4S";  // [Original Prusa MK4S, Original Prus
 // Buildplate rotation
 buildPlateRotation = 0; // [0:45:180]
 
-
 //Space calculation
 spaceX = boxSizeX + spacingX;
 spaceY = boxSizeY + spacingY;
@@ -66,8 +62,6 @@ boundY = spaceY * gridCountY;
 //Bound box
 sizeX = (gridCountX*boxSizeX)+((gridCountX-1)*spacingX)+rimThickness*2;
 sizeY = (gridCountY*boxSizeY)+((gridCountY-1)*spacingY)+rimThickness*2;
-
-
 
 //Printers test
 function get_bed_size(name) =
@@ -102,15 +96,10 @@ bedY = bed[1];
 
 fits = (boundX <= bedX) && (boundY <= bedY);
 
-
-
 //FILENAME
 echo(str("FILENAME: burs_box_", gridCountX, "x", gridCountY, "_SX", spacingX, "_SY", spacingY, "_C", holeClearance, ".stl"));
 
-
 // MAIN
-
-
 recolor(mainCol)
 difference() 
 {
@@ -125,23 +114,18 @@ difference()
                 {
                     for (j = [0 : gridCountY-1])
                     {
-//box-cutters
                         translate([i * spaceX, j * spaceY, 0])   
                         cuboid([boxSizeX+holeClearance,boxSizeY+holeClearance,boxSizeZ]);
                     }
-                }
-                            
+                }                          
         }
     translate([centerX,0,0])
         for (j = [0 : gridCountX-1])
         {
-//cutters
             translate([j * spaceX, 0, 0])   
             prismoid(size1=[boxSizeX-8,sizeY-rimThickness*2], size2=[boxSizeX-1, sizeY-rimThickness*2], h=bodyHeight-3+0.1);
-
         }
 }
-//Logo
 translate([0,0,-3.2]) 
     difference() 
     {
@@ -154,56 +138,49 @@ translate([0,0,-3.2])
         }
         cuboid([2.25*2,2.25,2.25], rounding = 2.25/2, edges = "Z");
     }
-
-    // Antislip
-
     if (boundX>=40 && boundY>=40 && enableAntislip==true)
     {
-    antislip_size = 10.5;
-    antislip_offset = 5;
-    translate([(sizeX/2)-(antislip_size/2)-antislip_offset,(sizeY/2)-(antislip_size/2)-antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
-    translate([(sizeX/-2)-(antislip_size/-2)+antislip_offset,(sizeY/2)-(antislip_size/2)-antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
-    translate([(sizeX/-2)-(antislip_size/-2)+antislip_offset,(sizeY/-2)-(antislip_size/-2)+antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
-    translate([(sizeX/2)-(antislip_size/2)-antislip_offset,(sizeY/-2)-(antislip_size/-2)+antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
+        antislip_size = 10.5;
+        antislip_offset = 5;
+        translate([(sizeX/2)-(antislip_size/2)-antislip_offset,(sizeY/2)-(antislip_size/2)-antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
+        translate([(sizeX/-2)-(antislip_size/-2)+antislip_offset,(sizeY/2)-(antislip_size/2)-antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
+        translate([(sizeX/-2)-(antislip_size/-2)+antislip_offset,(sizeY/-2)-(antislip_size/-2)+antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
+        translate([(sizeX/2)-(antislip_size/2)-antislip_offset,(sizeY/-2)-(antislip_size/-2)+antislip_offset,-3.2]) cyl(h=2, d=antislip_size, center=true);
     }
-
-
-
-
 }
 
 if (previewTools==true)
 {
-recolor("lemonchiffon")
-difference() 
-{
-    translate([centerX,centerY,boxSizeZ/2])
-        for (i = [0 : gridCountX-1])
-        {
-            for (j = [0 : gridCountY-1])
+    recolor("lemonchiffon")
+    difference() 
+    {
+        translate([centerX,centerY,boxSizeZ/2])
+            for (i = [0 : gridCountX-1])
             {
-                idx = i*gridCountY + j;
-                rnd = rands(0,1,1, randomSeed + idx)[0];
-                if (rnd < previewVisibility/100)              
-                translate([i * spaceX, j * spaceY, 0])   
-                cuboid([boxSizeX,boxSizeY,boxSizeZ]);
-            }
-        }         
-    translate([centerX,centerY,boxSizeZ/2])
-        for (i = [0 : gridCountX-1])
-        {
-            for (j = [0 : gridCountY-1])
+                for (j = [0 : gridCountY-1])
+                {
+                    idx = i*gridCountY + j;
+                    rnd = rands(0,1,1, randomSeed + idx)[0];
+                    if (rnd < previewVisibility/100)              
+                    translate([i * spaceX, j * spaceY, 0])   
+                    cuboid([boxSizeX,boxSizeY,boxSizeZ]);
+                }
+            }         
+        translate([centerX,centerY,boxSizeZ/2])
+            for (i = [0 : gridCountX-1])
             {
-                idx = i*gridCountY + j;
-                rnd = rands(0,1,1, randomSeed + idx)[0];
-                if (rnd < previewVisibility/100)               
-                translate([i * spaceX, j * spaceY, 0])   
-                translate([0,-1,1]) 
-                cuboid([boxSizeX-2,boxSizeY,boxSizeZ]);
+                for (j = [0 : gridCountY-1])
+                {
+                    idx = i*gridCountY + j;
+                    rnd = rands(0,1,1, randomSeed + idx)[0];
+                    if (rnd < previewVisibility/100)               
+                    translate([i * spaceX, j * spaceY, 0])   
+                    translate([0,-1,1]) 
+                    cuboid([boxSizeX-2,boxSizeY,boxSizeZ]);
+                }
             }
-        }
-}
-//Glass
+    }
+
 color([0.9, 0.9, 0.9, 0.5])
 translate([centerX,centerY,boxSizeZ/2])
     for (i = [0 : gridCountX-1])
@@ -221,12 +198,10 @@ translate([centerX,centerY,boxSizeZ/2])
 
 }
 
-// Printers Buildplate
 recolor("antiquewhite")
 
 if (previewBuildPlate == true)
 {
-//buildplate
     zrot(buildPlateRotation)
     translate([0,0,-3-0.1]) 
     cuboid([bedX,bedY,0.2]);

@@ -1,5 +1,4 @@
-//Diamonds Tray Tool
-//Version - 0.2.0
+//Tray Diamonds Tool
 //Jan Kesl
 //kesldesign.cz/tools
 
@@ -78,17 +77,15 @@ bedX = bed[0];
 bedY = bed[1];
 
 fits = (gridCountX <= bedX) && (gridCountY <= bedY);
-
-//RECALC
 ridgeMid = groove * sqrt(2) / 2;
 echo(ridgeMid);
 counter = gridCountY/groove;
-// Main body height
 bodyHeight = groove/2 + overlap + 3;
 prism2 = bodyHeight*tan(toolTiltAngle);
 
 //FILENAME
 echo(str("FILENAME: tray_diamonds_", gridCountX, "x", gridCountY, "_R", groove, "_T", toolTiltAngle, ".stl"));
+
 //MAIN
 recolor(mainCol)
 difference() 
@@ -97,23 +94,16 @@ difference()
     {
         union() 
         {
-
             difference()
             {
                 prismoid(size2=[gridCountX, gridCountY], size1=[gridCountX-prism2, gridCountY-prism2], rounding=10, h=bodyHeight);
-
                 translate([0,0,3]) 
                 prismoid(size2=[gridCountX-rimThickness, gridCountY-rimThickness], size1=[gridCountX-prism2-rimThickness, gridCountY-prism2-rimThickness], rounding=10-(rimThickness/2), h=bodyHeight-3+0.01);
             }
-
             intersection() 
             {
                 translate([0,0,3]) 
-    //CUTTER
                     prismoid(size2=[(gridCountX-rimThickness)*1.01, (gridCountY-rimThickness)*1.01], size1=[gridCountX-prism2-rimThickness, gridCountY-prism2-rimThickness], rounding=10-(rimThickness/2), h=bodyHeight-3+0.01);
-
-
-    //RIDGES
                 translate([0,gridCountY/-2,0]) 
                 for (i = [0:counter])
                 {
@@ -123,7 +113,6 @@ difference()
                 }
             }
         }
-    //Logo        
             difference() 
             {
                 union()
@@ -136,9 +125,6 @@ difference()
                 cuboid([2.25*2,2.25,2.25], rounding = 2.25/2, edges = "Z");
             }
     }
-
-    // protislkuzy
-
         if (gridCountX>=40 && gridCountY>=40 && enableAntislip==true)
         {
         antislip_size = 10.5;
@@ -150,12 +136,9 @@ difference()
         }
 }
 
-
 recolor("antiquewhite")
-
 if (previewBuildPlate == true)
 {
-//buildplate
     zrot(buildPlateRotation)
     translate([0,0,bodyHeight/-2-0.1]) 
     cuboid([bedX,bedY,0.2]);

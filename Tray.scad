@@ -1,20 +1,16 @@
-// Simple Tray Tool
-// Version - 0.2.3
+// Tray Tool
 // Jan Kesl
 // kesldesign.cz/tools
-
 
 //LIBS
 include <BOSL2/std.scad>
 //ATTRIBUTES
-
 
 /* [Render settings] */
 // Resolution
 $fn = 40; // [20:200]
 // Main color
 mainCol  = "darkcyan";        // ["darkcyan", "darkorchid", "darkslateblue", "darkseagreen", "lightcoral", "lightskyblue"]
-
 
 /* [Grid configuration] */
 // X dimension
@@ -42,11 +38,9 @@ overlap = 1; // [0:30]
 separator = 5;  // [1:30]
 
 /* [Protiskluzy] */
-
 // Enable Antislip feature
 enableAntislip = false;
 
-//--------------------------------------------
 /*[Printer toolSize test - Vypnout pro export]*/
 // Enable buildplare preview
 previewBuildPlate = false;
@@ -55,11 +49,9 @@ selectedPrinter = "Original Prusa MK4S";  // [Original Prusa MK4S, Original Prus
 // Buildplate rotation
 buildPlateRotation = 0; // [0:45:180]
 
-
 // Main body height
 bodyHeight = separator + overlap + 3;
 prism2 = bodyHeight*tan(toolTiltAngle);
-
 
 //Printers test
 function get_bed_size(name) =
@@ -75,7 +67,7 @@ function get_bed_size(name) =
     name == "Anycubic Kobra 2 Pro"         ? [220,220] :
     name == "Anycubic Kobra Plus"          ? [300,300] :
     name == "Anycubic Kobra 3 V2"          ? [255,255] :
-    name == "QIDI gridCountX-Max 3"                 ? [325,325] :
+    name == "QIDI gridCountX-Max 3"        ? [325,325] :
     name == "QIDI Q2"                      ? [270,270] :
     name == "FlashForge Adventurer 5M Pro" ? [220,220] :
     name == "FlashForge AD5X"              ? [220,220] :
@@ -94,10 +86,9 @@ bedY = bed[1];
 
 fits = (gridCountX <= bedX) && (gridCountY <= bedY);
 
-
-
 //FILENAME
 echo(str("FILENAME: tray_", gridCountX, "x", gridCountY, "_U", U, "_V", V, "_S", separator, "_T", toolTiltAngle, ".stl"));
+
 //MAIN
 recolor(mainCol)
 difference() 
@@ -110,22 +101,18 @@ difference()
                 translate([0,0,3]) 
                 prismoid(size2=[gridCountX-(rimThickness*2), gridCountY-(rimThickness*2)], size1=[gridCountX-prism2-(rimThickness*2), gridCountY-prism2-(rimThickness*2)], rounding=10-(rimThickness), h=bodyHeight-3+0.01);
             }
-
             intersection() 
             {
                 translate([0,0,3]) 
-    //CUTTER
-                    prismoid(size2=[gridCountX-rimThickness*0.75, gridCountY-rimThickness*0.75], size1=[gridCountX-prism2-rimThickness, gridCountY-prism2-rimThickness], rounding=10-(rimThickness/2), h=bodyHeight+0.01);
+                prismoid(size2=[gridCountX-rimThickness*0.75, gridCountY-rimThickness*0.75], size1=[gridCountX-prism2-rimThickness, gridCountY-prism2-rimThickness], rounding=10-(rimThickness/2), h=bodyHeight+0.01);
                 union() 
                 {    
-    // gridCountY Separator
                     translate([0,gridCountY/-2,-overlap]) 
                     for (i = [0: V])
                     {
                         translate([0,i*(gridCountY/V),bodyHeight/2]) 
                         cuboid([gridCountX-(rimThickness*2), 1, bodyHeight]);
                     }
-    // gridCountY Separator
                     translate([gridCountX/-2,0,-overlap]) 
                     for (i = [0: U])
                     {
@@ -146,8 +133,6 @@ difference()
             }
             cuboid([2.25*2,2.25,2.25], rounding = 2.25/2, edges = "Z");
         }
-// protislkuzy
-
         if (gridCountX>=40 && gridCountY>=40 && enableAntislip==true)
         {
         antislip_size = 10.5;
@@ -159,13 +144,9 @@ difference()
         }
 }
 
-// PREVIEW
-
 recolor("antiquewhite")
-
 if (previewBuildPlate == true)
 {
-//buildplate
     zrot(buildPlateRotation)
     translate([0,0,-0.1]) 
     cuboid([bedX,bedY,0.2]);

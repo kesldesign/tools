@@ -31,7 +31,7 @@ toolTiltAngle = 0; // [0:20]
 // Hole clearance
 holeClearance = 0.25; // [0:0.05:1]
 // Hole celarance step
-clearanceStep = 0.05; // increment mezi dírami
+clearanceStep = 0.05; // [0:0.01:0.5]
 // Tool lenght
 toolLength = 40;
 
@@ -46,7 +46,7 @@ boundX = space * gridCountX;
 
 
 //FILENAME
-echo(str("FILENAME: calibration_", "_S", toolSize, "_H", bodyHeight, "_C", holeClearance*100, "_T", toolTiltAngle, ".stl"));
+echo(str("FILENAME: calibration_", "_S", toolSize, "_H", bodyHeight, "_C", holeClearance*100, "_ST", clearanceStep*10, "_T", toolTiltAngle, ".stl"));
 
 //MAIN
 recolor(mainCol)

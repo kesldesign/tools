@@ -10,6 +10,7 @@
 [![check](https://img.shields.io/badge/Tray-1?style=for-the-badge&color=slateblue)](#5-tray)
 [![check](https://img.shields.io/badge/Tray_Diamonds-1?style=for-the-badge&color=darkseagreen)](#4-tray-diamonds)
 [![check](https://img.shields.io/badge/Burs_Box-1?style=for-the-badge&color=crimson)](#3-burs-box)
+[![check](https://img.shields.io/badge/Calibration-1?style=for-the-badge&color=grey)](#6-calibration)
 
 ---
 
@@ -103,3 +104,20 @@
 | `separator`      | `S`                    | Height of internal dividers                        | 1–30 mm            |
 | `overlap`        | —                      | Vertical overhang of rim above dividers            | 0–30 mm            |
 | `enableAntislip` | —                      | Enable/disable anti-slip pattern                   | true / false       |
+
+
+
+## 6. Calibration
+![Calibration](/imgs/thumbs/calibration.png)
+
+| Parameter name      | Filename abbreviation | Description                                        | Range / limits             |
+|---------------------|------------------------|----------------------------------------------------|----------------------------|
+| `gridCountX`        | `X`                    | Number of columns (X)                              | 1–40                       |
+| `gridCountY`        | `Y`                    | Number of rows (Y)                                 | 1–40                       |
+| `bodyHeight`        | `H`                    | Total height of the organizer                      | 15–45 mm                   |
+| `rimThickness`      | —                      | Thickness of the top rim                           | 0–5 mm                     |
+| `toolSize`          | `S`                    | Diameter of the widest part of the tool            | 10–50 mm                   |
+| `toolSpacing`       | —                      | Distance between tools                             | 5–30 mm                    |
+| `toolTiltAngle`     | `T`                    | Tilt angle of the holes                            | 0–20°                      |
+| `holeClearance`     | `C`                    | Clearance for the tool shank                       | 0–1 mm (step 0.05)         |
+| `clearanceStep`     | `ST`                   | Clearance incremental step                         | 0–0.5 mm (step 0.01)         |

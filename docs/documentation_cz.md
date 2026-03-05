@@ -11,7 +11,7 @@
 [![check](https://img.shields.io/badge/Tray-1?style=for-the-badge&color=slateblue)](#5-tray)
 [![check](https://img.shields.io/badge/Tray_Diamonds-1?style=for-the-badge&color=darkseagreen)](#4-tray-diamonds)
 [![check](https://img.shields.io/badge/Burs_Box-1?style=for-the-badge&color=crimson)](#3-burs-box)
-
+[![check](https://img.shields.io/badge/Calibration-1?style=for-the-badge&color=grey)](#6-calibration)
 ---
 
 >Některé parametry jsou ošetřeny aby nevytvořily špatnou geometrii, ale přesto je možné mít špatnou síť nebo nefunkční model
@@ -114,3 +114,17 @@
 
 
 
+## 6. Calibration
+![Calibration](/imgs/thumbs/calibration.png)
+
+| Název v kódu        | Zkratka v názvu souboru | Popis                                               | Rozsah / limity            |
+|---------------------|--------------------------|----------------------------------------------------|----------------------------|
+| `gridCountX`        | `X`                      | Počet X                                            | 1–40                       |
+| `gridCountY`        | `Y`                      | Počet Y                                            | 1–40                       |
+| `bodyHeight`        | `H`                      | Celková výška organizéru                           | 15–45 mm                   |
+| `rimThickness`      | —                        | Tloušťka horního rámečku                           | 0–5 mm                     |
+| `toolSize`          | `S`                      | Průměr nejširší části nástroje                     | 10–50 mm                   |
+| `toolSpacing`       | —                        | Vzdálenost mezi nástroji                           | 5–30 mm                    |
+| `toolTiltAngle`     | `T`                      | Úhel sklonu otvorů                                 | 0–20°                      |
+| `holeClearance`     | `C`                      | Vůle pro dřík nástroje                             | 0–1 mm (krok 0.05)         |
+| `clearanceStep`     | `ST`                     | Inkrementální posun vůle                           | 0–0.5 mm (krok 0.01)       |

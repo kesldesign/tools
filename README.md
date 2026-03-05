@@ -54,6 +54,7 @@ The goal is to create an open foundation where creators can build their own solu
 |[![check](https://img.shields.io/badge/Tray-1?style=for-the-badge&color=slateblue)](/docs/documentation.md#5-tray)|Trays for various parts with the option to divide into custom compartments |✔|✔|
 |[![check](https://img.shields.io/badge/Tray_Diamonds-1?style=for-the-badge&color=darkseagreen)](/docs/documentation.md#4-tray-diamonds)|Trays for sorting diamonds or other gemstones. |✔|✔|
 |[![check](https://img.shields.io/badge/Burs_Box-1?style=for-the-badge&color=crimson)](/docs/documentation.md#3-burs-box)|Organizer for boxes with milling burs. |✔|✔|
+|[![check](https://img.shields.io/badge/Calibration-1?style=for-the-badge&color=grey)](/docs/documentation.md#6-calibration)|Calibration tool for setting propper `holeClereance`. |✔|-|
 
 #### Features
 
@@ -71,7 +72,7 @@ The goal is to create an open foundation where creators can build their own solu
 - [ ] Angled or cascading modules  
 - [ ] Mandrel diameter parametric settings  
 - [ ] Box for storing quick-swap gravers for GraverMach  
-- [ ] Calibration modules for 3D printers
+- [x] Calibration modules for 3D printers
 
 ###### Build plate dimensions for reference:
 

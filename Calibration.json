@@ -1,0 +1,19 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "$fn": "40",
+            "bodyHeight": "15",
+            "clearanceStep": "0",
+            "gridCountX": "4",
+            "gridCountY": "4",
+            "holeClearance": "0.25",
+            "mainCol": "darkcyan",
+            "rimThickness": "1",
+            "toolLength": "40",
+            "toolSize": "15",
+            "toolSpacing": "6",
+            "toolTiltAngle": "0"
+        }
+    }
+}

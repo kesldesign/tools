@@ -105,3 +105,4 @@ The goal is to create an open foundation where creators can build their own solu
 
 ---
 
+![Repo views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/kesldesign/tools&title=repo%20views)

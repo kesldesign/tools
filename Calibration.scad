@@ -24,6 +24,8 @@ rimThickness = 1; // [0:5]
 /* [Tool parameters] */
 // Tool head size
 toolSize = 15; // [10:50]
+// Mandrel diameter
+diameter = 2.35; // [1:0.05:8]
 // Spacing between tool heads
 toolSpacing = 6; // [5:30]
 // Tool tilt angle
@@ -46,7 +48,7 @@ boundX = space * gridCountX;
 
 
 //FILENAME
-echo(str("FILENAME: calibration_", "_S", toolSize, "_H", bodyHeight, "_C", holeClearance*100, "_ST", clearanceStep*10, "_T", toolTiltAngle, ".stl"));
+echo(str("FILENAME: calibration_", "_S", toolSize, "_D", diameter, "_H", bodyHeight, "_C", holeClearance*100, "_ST", clearanceStep*10, "_T", toolTiltAngle, ".stl"));
 
 //MAIN
 recolor(mainCol)
@@ -68,9 +70,9 @@ difference()
                 clearance = holeClearance + holeIndex * clearanceStep;
 
                 translate([i * space, j * space, 0])   
-                xrot(toolTiltAngle) cyl(h=toolLength, d=2.35 + clearance, center=false)
+                xrot(toolTiltAngle) cyl(h=toolLength, d=diameter + clearance, center=false)
                 translate([0,0,-toolLength/2+bodyHeight-3+(rimThickness/2)-bodyHeight+15-1.5])
-                    cyl(h=3, d1=2.35 + clearance, d2=5 + clearance, center=false);
+                    cyl(h=3, d1=diameter + clearance, d2=diameter+5 + clearance, center=false);
             }
         }
     translate([0,0,(bodyHeight/-2)-0.2]) 

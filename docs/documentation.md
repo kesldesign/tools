@@ -117,7 +117,8 @@
 | `bodyHeight`        | `H`                    | Total height of the organizer                      | 15–45 mm                   |
 | `rimThickness`      | —                      | Thickness of the top rim                           | 0–5 mm                     |
 | `toolSize`          | `S`                    | Diameter of the widest part of the tool            | 10–50 mm                   |
+| `diameter`          | `D`                    | Mandrel diameter                                   | 1–8 mm (step 0.05)         |
 | `toolSpacing`       | —                      | Distance between tools                             | 5–30 mm                    |
 | `toolTiltAngle`     | `T`                    | Tilt angle of the holes                            | 0–20°                      |
 | `holeClearance`     | `C`                    | Clearance for the tool shank                       | 0–1 mm (step 0.05)         |
-| `clearanceStep`     | `ST`                   | Clearance incremental step                         | 0–0.5 mm (step 0.01)         |
+| `clearanceStep`     | `ST`                   | Clearance incremental step                         | 0–0.5 mm (step 0.01)       |

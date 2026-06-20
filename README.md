@@ -70,7 +70,7 @@ The goal is to create an open foundation where creators can build their own solu
 #### Future plans 
 - [ ] Vertical modules  
 - [ ] Angled or cascading modules  
-- [ ] Mandrel diameter parametric settings  
+- [x] Mandrel diameter parametric settings  
 - [ ] Box for storing quick-swap gravers for GraverMach  
 - [x] Calibration modules for 3D printers
 

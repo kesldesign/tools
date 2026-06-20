@@ -35,6 +35,7 @@
 | `rimThickness`      | —                        | Tloušťka horního rámečku                           | 0–5 mm                     |
 | `bodyHeight`        | `H`                      | Celková výška organizéru (bez vaniček)             | 15–40 mm                   |
 | `headDiameter`      | `S`                      | Průměr nejširší části nástroje                     | 10–50 mm                   |
+| `diameter`          | `D`                      | Průměr mandrely nástroje                           | 1-8 mm (krok 0.05)         |
 | `toolSpacing`       | —                        | Vzdálenost mezi nástroji                           | 5–30 mm                    |
 | `toolTiltAngle`     | `T`                      | Úhel sklonu otvorů                                 | 0–20°                      |
 | `holeClearance`     | `C`                      | Vůle pro dřík nástroje                             | 0–1 mm (krok 0.05)         |
@@ -56,6 +57,7 @@
 | `bodyHeight`        | `H`                      | Celková výška organizéru                           | 15–45 mm                   |
 | `rimThickness`      | —                        | Tloušťka horního rámečku                           | 0–5 mm                     |
 | `toolSize`          | `S`                      | Průměr nejširší části nástroje                     | 10–50 mm                   |
+| `diameter`          | `D`                      | Průměr mandrely nástroje                           | 1-8 mm (krok 0.05)         |
 | `toolSpacing`       | —                        | Vzdálenost mezi nástroji                           | 5–30 mm                    |
 | `toolTiltAngle`     | `T`                      | Úhel sklonu otvorů                                 | 0–20°                      |
 | `holeClearance`     | `C`                      | Vůle pro dřík nástroje                             | 0–1 mm (krok 0.05)         |
@@ -124,6 +126,7 @@
 | `bodyHeight`        | `H`                      | Celková výška organizéru                           | 15–45 mm                   |
 | `rimThickness`      | —                        | Tloušťka horního rámečku                           | 0–5 mm                     |
 | `toolSize`          | `S`                      | Průměr nejširší části nástroje                     | 10–50 mm                   |
+| `diameter`          | `D`                      | Průměr mandrely nástroje                           | 1-8 mm (krok 0.05)         |
 | `toolSpacing`       | —                        | Vzdálenost mezi nástroji                           | 5–30 mm                    |
 | `toolTiltAngle`     | `T`                      | Úhel sklonu otvorů                                 | 0–20°                      |
 | `holeClearance`     | `C`                      | Vůle pro dřík nástroje                             | 0–1 mm (krok 0.05)         |
